@@ -15,5 +15,8 @@
     "url": "https://github.com/bb609999/KmmLibExample/issues"
   },
   "homepage": "https://github.com/bb609999/KmmLibExample#readme",
-  "description": ""
+  "description": "",
+  "publishConfig": {
+    "bb609999:registry": "https://npm.pkg.github.com"
+  }
 }
