@@ -13,11 +13,15 @@ import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import io.ktor.http.websocket.websocketServerAccept
 import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 
 class KtorExample {
     private val client = HttpClient(){
         install(ContentNegotiation) {
-            json()
+            Json {
+                this.isLenient = true
+                this.ignoreUnknownKeys = true
+            }
         }
     }
 
