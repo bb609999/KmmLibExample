@@ -1,10 +1,14 @@
 package com.example.kmmlibexample.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class ApiResponse(
     val info: Info,
     val results: List<Character>
 )
 
+@Serializable
 data class Info(
     val count: Int,
     val pages: Int,
@@ -12,6 +16,7 @@ data class Info(
     val prev: String?
 )
 
+@Serializable
 data class Character(
     val id: Int,
     val name: String,
@@ -27,6 +32,7 @@ data class Character(
     val created: String
 )
 
+@Serializable
 data class LocationInfo(
     val name: String,
     val url: String
