@@ -18,10 +18,10 @@ import kotlinx.serialization.json.Json
 class KtorExample {
     private val client = HttpClient(){
         install(ContentNegotiation) {
-            Json {
+            json(Json {
                 this.isLenient = true
                 this.ignoreUnknownKeys = true
-            }
+            })
         }
     }
 
