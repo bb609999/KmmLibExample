@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    id("org.jetbrains.dokka") version "0.9.17"
+    id("maven-publish")
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -8,11 +10,8 @@ kotlin {
     targetHierarchy.default()
 
     androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
+        publishLibraryVariants("release", "debug")
+        publishLibraryVariantsGroupedByFlavor = true
     }
     
     listOf(
@@ -46,6 +45,24 @@ kotlin {
         }
     }
 
+}
+
+group = "com.example.mysharedlib"
+version = "0.1.1"
+
+val GITHUB_USER: String by project
+val GITHUB_TOKEN: String by project
+
+publishing {
+    repositories {
+        maven {
+            setUrl("https://maven.pkg.github.com/bb609999/KmmLibExample")
+            credentials {
+                username = GITHUB_USER
+                password = GITHUB_TOKEN
+            }
+        }
+    }
 }
 
 android {
