@@ -23,6 +23,6 @@ class KtorExample {
 
     suspend fun getAllCharacters(): List<Character> {
         val response = client.get("https://rickandmortyapi.com/api/character")
-        return (response.body() as? ApiResponse)?.results ?: listOf()
+        return response.body<ApiResponse>().results
     }
 }

@@ -41,6 +41,8 @@ kotlin {
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+                implementation(libs.kotlinx.serialization.json)
+
             }
         }
         val commonTest by getting {
@@ -53,7 +55,7 @@ kotlin {
 }
 
 group = "com.example.mysharedlib"
-version = "0.1.4"
+version = "0.1.5"
 
 val GITHUB_USER: String by project
 val GITHUB_TOKEN: String by project
