@@ -7,6 +7,11 @@ plugins {
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
+
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+
     targetHierarchy.default()
 
     androidTarget {
@@ -64,6 +69,8 @@ publishing {
         }
     }
 }
+
+
 
 android {
     namespace = "com.example.kmmlibexample"
