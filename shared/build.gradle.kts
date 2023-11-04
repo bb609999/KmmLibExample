@@ -53,7 +53,7 @@ kotlin {
 }
 
 group = "com.example.mysharedlib"
-version = "0.1.1"
+version = "0.1.2"
 
 val GITHUB_USER: String by project
 val GITHUB_TOKEN: String by project
