@@ -3,7 +3,9 @@ plugins {
     alias(libs.plugins.androidLibrary)
     id("org.jetbrains.dokka") version "0.9.17"
     id("maven-publish")
+    kotlin("plugin.serialization")
 }
+
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
@@ -55,7 +57,7 @@ kotlin {
 }
 
 group = "com.example.mysharedlib"
-version = "0.1.5"
+version = "0.1.6"
 
 val GITHUB_USER: String by project
 val GITHUB_TOKEN: String by project
