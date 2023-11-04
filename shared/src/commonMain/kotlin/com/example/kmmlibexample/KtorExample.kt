@@ -1,5 +1,6 @@
 package com.example.kmmlibexample
 
+import com.example.kmmlibexample.model.ApiResponse
 import com.example.kmmlibexample.model.Character
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -22,6 +23,6 @@ class KtorExample {
 
     suspend fun getAllCharacters(): List<Character> {
         val response = client.get("https://rickandmortyapi.com/api/character")
-        return response.body()
+        return (response.body() as? ApiResponse)?.results ?: listOf()
     }
 }
