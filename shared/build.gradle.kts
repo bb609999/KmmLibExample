@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinCocoapods)
     id("org.jetbrains.dokka") version "0.9.17"
     id("maven-publish")
     kotlin("plugin.serialization")
@@ -20,16 +21,21 @@ kotlin {
         publishLibraryVariants("release", "debug")
         publishLibraryVariantsGroupedByFlavor = true
     }
-    
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
+
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
+    cocoapods {
+        summary = "Some description for the Shared Module"
+        homepage = "Link to the Shared Module homepage"
+        version = "1.0"
+        ios.deploymentTarget = "14.1"
+        framework {
             baseName = "shared"
         }
     }
+
 
     sourceSets {
         val ktorVersion = "2.2.4"
@@ -57,7 +63,7 @@ kotlin {
 }
 
 group = "com.example.mysharedlib"
-version = "0.1.9"
+version = "0.1.11"
 
 val GITHUB_USER: String by project
 val GITHUB_TOKEN: String by project
