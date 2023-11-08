@@ -16,14 +16,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 class KtorExample {
-    private val client = HttpClient(){
-        install(ContentNegotiation) {
-            json(Json {
-                this.isLenient = true
-                this.ignoreUnknownKeys = true
-            })
-        }
-    }
+    private val client = getPlatform().httpClient
 
     suspend fun getAllCharacters(): List<Character> {
         val response = client.get("https://rickandmortyapi.com/api/character")

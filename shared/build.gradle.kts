@@ -34,6 +34,10 @@ kotlin {
         framework {
             baseName = "shared"
         }
+        dependencies {
+            implementation("io.ktor:ktor-client-darwin:2.2.4")
+
+        }
     }
 
 
@@ -50,6 +54,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation(libs.kotlinx.serialization.json)
+                implementation("io.ktor:ktor-client-darwin:2.2.4")
 
             }
         }
@@ -58,6 +63,7 @@ kotlin {
                 implementation(libs.kotlin.test)
             }
         }
+
     }
 
 }

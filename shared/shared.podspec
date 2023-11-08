@@ -2,8 +2,8 @@ Pod::Spec.new do |spec|
     spec.name                     = 'shared'
     spec.version                  = '1.0'
     spec.homepage                 = 'Link to the Shared Module homepage'
-    spec.source                   = { :git => 'https://github.com/bb609999/KmmLibExample.git', :tag => "#{spec.version}" }
-    spec.authors                  = 'bb609999'
+    spec.source                   = { :http=> ''}
+    spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'Some description for the Shared Module'
     spec.vendored_frameworks      = 'build/cocoapods/framework/shared.framework'
