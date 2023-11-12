@@ -22,4 +22,8 @@ class KtorExample {
         val response = client.get("https://rickandmortyapi.com/api/character")
         return response.body<ApiResponse>().results
     }
+
+    suspend fun AfClient.getAllCharactersAF() {
+        get("https://rickandmortyapi.com/api/character")
+    }
 }
